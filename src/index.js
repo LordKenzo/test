@@ -5,5 +5,12 @@ module.exports = {
     } else {
       return number * number;
     }
+  },
+  s_test: function(string){
+    if (typeof string !== 'string' || string === undefined){
+      throw new Error('I need a string');
+    } else {
+      return string + string;
+    }
   }
 }
