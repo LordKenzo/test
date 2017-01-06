@@ -1,0 +1,63 @@
+{
+  "name": "test",
+  "version": "0.0.0-development",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "precommit": "npm run lint && npm run test:single",
+    "commit": "git status && git-cz",
+    "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src\" ",
+    "prebuild": "npm run lint && npm run test:single",
+    "build": "babel src -s -D -d dist",
+    "test": "mocha test/*-test.js -w",
+    "test:single": "mocha test/*-test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LordKenzo/test.git"
+  },
+  "keywords": [
+    "test",
+    "repo"
+  ],
+  "author": "LordKenzo <lordkenzo@outlook.com> (http://github.com/freecodecamproma)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LordKenzo/test/issues"
+  },
+  "homepage": "https://github.com/LordKenzo/test#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "commitizen": "^2.9.3",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.12.2",
+    "husky": "^0.12.0",
+    "mocha": "^3.2.0",
+    "semantic-release": "^6.3.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
