@@ -3,7 +3,7 @@
 E' un progetto skeleton per avere:
 
 ```
-npm i -D mocha chai eslint husky commitizen@2.9.3
+npm i -D mocha chai eslint husky commitizen@2.9.3 istanbul
 
 ./node_modules/.bin/commitizen init cz-conventional-changelog --save-dev --save-exact
 
@@ -15,7 +15,8 @@ npm install -g semantic-realease-cli
 3. Ambiente di Test con MOCHA e CHAI;
 4. Utilizzo di COMMITIZEN e CZ-CONVENTIONAL-CHANGELOG per il corretto invio dei commit su GITHUB, seguendo la convezione ANGULAR;
 5. Utilizzo di BABEL per ES6 (ES2015) e STAGE-0;
-6. Utilizzo di SEMANTIC RELEASE.
+6. Utilizzo di SEMANTIC RELEASE;
+7. Utilizzo di ISTANBUL per il CODE COVERAGE.
 
 Per vedere i packages NPM installati globalmente:
 
@@ -72,3 +73,11 @@ script:
 ```
 
 Ricordati che prima di lanciare il commit, fai un git status ed un eventuale git add .
+
+Per utilizzare ISTANBUL, devo modificare il comando di test, escludendo i file di test, passando il comando _mocha per lanciare mocha (è un comando che mi si crea in .bin sotto node\_modules) e passare gli argomenti:
+
+```
+"test:single": "istanbul cover -x *-test.js \_mocha -- -R spec test/\*-test.js",
+```
+
+Adesso posso lanciare il comando npm run test:single
