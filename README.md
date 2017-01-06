@@ -63,3 +63,12 @@ semantic-release-cli setup
 ? What CI are you using? Travis CI
 ? Do you want a `.travis.yml` file with semantic-release setup? Yes
 ```
+
+Il file .travis.yml è il file di configurazione, che ci permette di specificare anche le versioni di Node.js su cui fare il test prima della release. Andiamo a modificarlo, inserendo, prima di after_success, questo comando:
+
+```
+script:
+  - npm run test:single
+```
+
+Ricordati che prima di lanciare il commit, fai un git status ed un eventuale git add .
